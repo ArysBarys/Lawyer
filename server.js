@@ -278,6 +278,10 @@ app.get('/admin', (req, res) => {
   res.sendFile(path.join(__dirname, 'admin', 'index.html'));
 });
 
+app.get('/admin/login', (req, res) => {
+  res.sendFile(path.join(__dirname, 'admin', 'login.html'));
+});
+
 app.get('/lawyer', (req, res) => {
   res.sendFile(path.join(__dirname, 'lawyer.html'));
 });
