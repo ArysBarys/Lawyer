@@ -215,10 +215,8 @@ async function switchView(view) {
 }
 
 async function initAdmin() {
-  const loginScreen = getEl('loginScreen');
   const adminApp = getEl('adminApp');
-  const loginForm = getEl('loginForm');
-  const loginError = getEl('loginError');
+  const logoutBtn = getEl('logoutBtn');
 
   document.querySelectorAll('[data-view]').forEach((button) => {
     button.addEventListener('click', async () => {
@@ -226,44 +224,17 @@ async function initAdmin() {
     });
   });
 
-  loginForm.addEventListener('submit', async (event) => {
-    event.preventDefault();
-    loginError.hidden = true;
+  // No login form: show admin panel directly
+  if (adminApp) adminApp.hidden = false;
+  await switchView('overview');
 
-    try {
-      const username = getEl('loginUser').value.trim();
-      const password = getEl('loginPass').value;
-      const result = await login(username, password);
-
-      if (result.role !== 'admin') {
-        throw new Error('Только администратор может войти в панель.');
-      }
-
-      loginForm.reset();
-      loginScreen.hidden = true;
-      adminApp.hidden = false;
-      await switchView('overview');
-    } catch (error) {
-      loginError.textContent = error.message || 'Ошибка входа';
-      loginError.hidden = false;
-    }
-  });
-
-  getEl('logoutBtn').addEventListener('click', async () => {
-    try {
-      await logout();
-    } catch (error) {
-      // ignore
-    }
-
-    loginScreen.hidden = false;
-    adminApp.hidden = true;
-    loginForm.reset();
-  });
-
-  document.addEventListener('DOMContentLoaded', () => {
-    switchView('overview');
-  });
+  if (logoutBtn) {
+    logoutBtn.addEventListener('click', async () => {
+      try { await logout(); } catch (e) { /* ignore */ }
+      // redirect to standalone login page after logout
+      location.href = '/admin/login';
+    });
+  }
 }
 
 initAdmin();
