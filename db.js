@@ -1,9 +1,13 @@
 const Database = require('better-sqlite3');
 const bcrypt = require('bcryptjs');
 const crypto = require('crypto');
+const fs = require('fs');
 const path = require('path');
 
-const db = new Database(path.join(__dirname, 'data.db'));
+const DB_DIR = process.env.DB_DIR || path.join(__dirname, '..', 'adaltirek-data');
+fs.mkdirSync(DB_DIR, { recursive: true });
+
+const db = new Database(path.join(DB_DIR, 'data.db'));
 db.pragma('journal_mode = WAL');
 
 function ensureColumn(tableName, columnName, definition) {

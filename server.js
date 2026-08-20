@@ -4,7 +4,11 @@ const SQLiteStore = require('connect-sqlite3')(session);
 const bodyParser = require('body-parser');
 const bcrypt = require('bcryptjs');
 const crypto = require('crypto');
+const fs = require('fs');
 const path = require('path');
+
+const DB_DIR = process.env.DB_DIR || path.join(__dirname, '..', 'adaltirek-data');
+fs.mkdirSync(DB_DIR, { recursive: true });
 
 const db = require('./db');
 
@@ -26,7 +30,7 @@ app.get(['/styles.css', '/script.js', '/lawyer.css', '/lawyer.js'], (req, res) =
 });
 
 app.use(session({
-  store: new SQLiteStore({ db: 'sessions.db', dir: __dirname }),
+  store: new SQLiteStore({ db: 'sessions.db', dir: DB_DIR }),
   secret: process.env.SESSION_SECRET || 'dev_only_secret_do_not_use_in_prod',
   resave: false,
   saveUninitialized: false,
