@@ -1,0 +1,139 @@
+﻿<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Админка ADALTIREK</title>
+    <link rel="stylesheet" href="/admin/admin.css" />
+  </head>
+  <body>
+    <section id="loginScreen" class="login-screen">
+      <form id="loginForm" class="login-card">
+        <div class="login-header">
+          <span class="login-mark">A</span>
+          <div>
+            <p class="login-eyebrow">ADALTIREK</p>
+            <h1>Вход в админку</h1>
+          </div>
+        </div>
+
+        <p class="login-hint">Введите логин и пароль администратора.</p>
+
+        <label class="field">
+          <span>Логин</span>
+          <input type="text" id="loginUser" autocomplete="username" required />
+        </label>
+
+        <label class="field">
+          <span>Пароль</span>
+          <input type="password" id="loginPass" autocomplete="current-password" required />
+        </label>
+
+        <p id="loginError" class="login-error" hidden></p>
+        <button type="submit" class="btn-primary">Войти</button>
+      </form>
+    </section>
+
+    <div id="adminApp" class="admin-shell" hidden>
+      <aside class="sidebar">
+        <div class="sidebar-brand">
+          <span class="sidebar-brand-mark">A</span>
+          <div>
+            <div class="sidebar-brand-name">ADALTIREK</div>
+            <div class="sidebar-brand-subtitle">Панель управления</div>
+          </div>
+        </div>
+
+        <nav class="sidebar-nav" aria-label="Навигация админки">
+          <button class="nav-item active" data-view="overview">Обзор</button>
+          <button class="nav-item" data-view="orders">Заявки</button>
+          <button class="nav-item" data-view="lawyers">Юристы</button>
+          <button class="nav-item" data-view="contacts">Сообщения</button>
+        </nav>
+
+        <button id="logoutBtn" class="sidebar-logout" type="button">Выйти</button>
+      </aside>
+
+      <main class="main">
+        <section id="view-overview" class="view">
+          <header class="view-header">
+            <div>
+              <p class="view-kicker">Сводка</p>
+              <h1>Обзор</h1>
+            </div>
+          </header>
+
+          <div class="stat-grid">
+            <article class="stat-card">
+              <p class="stat-label">Новые заявки</p>
+              <p class="stat-value" id="statNew">0</p>
+            </article>
+            <article class="stat-card">
+              <p class="stat-label">В работе</p>
+              <p class="stat-value" id="statInProgress">0</p>
+            </article>
+            <article class="stat-card">
+              <p class="stat-label">Закрыто</p>
+              <p class="stat-value" id="statClosed">0</p>
+            </article>
+            <article class="stat-card">
+              <p class="stat-label">Юристов</p>
+              <p class="stat-value" id="statLawyers">0</p>
+            </article>
+          </div>
+
+          <div class="panel">
+            <div class="panel-header">
+              <h2>Последние заявки</h2>
+            </div>
+            <div id="recentOrdersTable" class="table-wrap"></div>
+          </div>
+        </section>
+
+        <section id="view-orders" class="view" hidden>
+          <header class="view-header">
+            <div>
+              <p class="view-kicker">Управление</p>
+              <h1>Заявки</h1>
+            </div>
+          </header>
+
+          <div class="panel">
+            <div id="ordersTable" class="table-wrap"></div>
+          </div>
+        </section>
+
+        <section id="view-lawyers" class="view" hidden>
+          <header class="view-header">
+            <div>
+              <p class="view-kicker">Команда</p>
+              <h1>Юристы</h1>
+            </div>
+          </header>
+
+          <div class="panel">
+            <div id="lawyersTable" class="table-wrap"></div>
+          </div>
+        </section>
+
+        <section id="view-contacts" class="view" hidden>
+          <header class="view-header">
+            <div>
+              <p class="view-kicker">Входящие</p>
+              <h1>Сообщения</h1>
+            </div>
+          </header>
+
+          <div class="panel">
+            <div id="contactsTable" class="table-wrap"></div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div id="toast" class="toast" hidden></div>
+
+    <script src="/admin/auth.js"></script>
+    <script src="/admin/admin.js"></script>
+  </body>
+</html>
