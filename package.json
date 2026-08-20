@@ -8,15 +8,18 @@
     "build": "vite build",
     "preview": "vite preview",
     "start": "node server.js",
-    "test": "node --check server.js && node --check admin/auth.js && node --check admin/admin.js"
+    "migrate": "node migrate.js",
+    "test": "node --check server.js && node --check db.js && node --check admin/auth.js && node --check admin/admin.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "better-sqlite3": "^13.0.3",
     "body-parser": "^2.3.0",
-    "cors": "^2.8.6",
+    "connect-sqlite3": "^0.9.18",
     "express": "^5.2.1",
     "express-session": "^1.19.0",
     "react": "^19.2.8",

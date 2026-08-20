@@ -6,3 +6,8 @@ build/
 .vscode/
 __pycache__/
 venv/
+data.db
+data.db-wal
+data.db-shm
+sessions.db
+server-data.json

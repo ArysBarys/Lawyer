@@ -88,13 +88,14 @@ async function initAdmin() {
     event.preventDefault();
     const id = getEl('lawyerId').value;
     const payload = {
+      username: getEl('lawyerUsername').value.trim(),
       name: getEl('lawyerName').value.trim(),
       specialty: getEl('lawyerSpecialty').value.trim(),
       phone: getEl('lawyerPhone').value.trim(),
       email: getEl('lawyerEmail').value.trim(),
     };
 
-    if (!payload.name || !payload.specialty || !payload.phone || !payload.email) {
+    if (!payload.username || !payload.name || !payload.specialty || !payload.phone || !payload.email) {
       showToast('Заполните все поля.');
       return;
     }
@@ -331,6 +332,7 @@ async function initAdmin() {
       const lawyer = lawyers.find((item) => item.id === id);
       if (!lawyer) return;
       getEl('lawyerId').value = lawyer.id;
+      getEl('lawyerUsername').value = lawyer.username || '';
       getEl('lawyerName').value = lawyer.name;
       getEl('lawyerSpecialty').value = lawyer.specialty;
       getEl('lawyerPhone').value = lawyer.phone;
