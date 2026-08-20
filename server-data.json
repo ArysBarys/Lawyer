@@ -1,0 +1,82 @@
+{
+  "admin": {
+    "username": "admin",
+    "password": "adaltirek2026"
+  },
+  "adminAccounts": [
+    {
+      "id": "admin",
+      "username": "admin",
+      "password": "adaltirek2026"
+    }
+  ],
+  "lawyerAccounts": [
+    {
+      "id": "l1",
+      "username": "erlan",
+      "password": "erlan123",
+      "name": "Ерлан Сатыбалдин"
+    },
+    {
+      "id": "l2",
+      "username": "aigerim",
+      "password": "aigerim123",
+      "name": "Айгерим Нурланова"
+    }
+  ],
+  "lawyers": [
+    {
+      "id": "l1",
+      "name": "Ерлан Сатыбалдин",
+      "specialty": "Трудовое право",
+      "phone": "+7 700 111 22 33",
+      "email": "erlan@adaltirek.kz"
+    },
+    {
+      "id": "l2",
+      "name": "Айгерим Нурланова",
+      "specialty": "Семейные и наследственные споры",
+      "phone": "+7 701 222 33 44",
+      "email": "aigerim@adaltirek.kz"
+    }
+  ],
+  "orders": [
+    {
+      "id": "o1",
+      "clientName": "Данияр Ахметов",
+      "phone": "+7 707 555 12 34",
+      "topic": "Трудовой спор — незаконное увольнение",
+      "status": "new",
+      "lawyerId": null,
+      "createdAt": "2026-08-10"
+    },
+    {
+      "id": "o2",
+      "clientName": "Светлана Ким",
+      "phone": "+7 705 888 09 87",
+      "topic": "Раздел имущества при разводе",
+      "status": "in_progress",
+      "lawyerId": "l2",
+      "createdAt": "2026-08-09"
+    },
+    {
+      "id": "o3",
+      "clientName": "ТОО «СтройГрупп»",
+      "phone": "+7 727 300 45 67",
+      "topic": "Сопровождение проверки трудовой инспекцией",
+      "status": "closed",
+      "lawyerId": "l1",
+      "createdAt": "2026-08-02"
+    }
+  ],
+  "contacts": [
+    {
+      "id": "c1786994490829",
+      "name": "фывфыв",
+      "phone": "87007655677",
+      "email": "",
+      "message": "фыввыффыв",
+      "createdAt": "2026-08-17T19:21:30.829Z"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Личный кабинет юриста — ADALTIREK</title>
+    <link rel="stylesheet" href="/lawyer.css">
+  </head>
+  <body>
+    <header class="lawyer-header">
+      <div class="container header-inner">
+        <a class="brand" href="/" aria-label="ADALTIREK">
+          <img src="assets/adaltirek-logo.jpg" alt="ADALTIREK">
+          <span>ADALTIREK</span>
+        </a>
+        <nav class="lawyer-nav" aria-label="Навигация">
+          <a href="/">Главная</a>
+          <a href="/admin">Админ</a>
+          <button id="logoutBtn" type="button" class="btn-secondary">Выйти</button>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section id="loginSection" class="card login-card">
+        <h1>Вход для юристов</h1>
+        <p class="hint">Доступ только для учетных записей юристов.</p>
+        <form id="loginForm">
+          <label class="field">
+            <span>Логин</span>
+            <input type="text" id="loginUser" autocomplete="username" required>
+          </label>
+          <label class="field">
+            <span>Пароль</span>
+            <input type="password" id="loginPass" autocomplete="current-password" required>
+          </label>
+          <p id="loginError" class="error-message" hidden>Неверный логин или пароль</p>
+          <button type="submit" class="btn-primary">Войти</button>
+        </form>
+      </section>
+
+      <section id="dashboardSection" class="dashboard" hidden>
+        <div class="dashboard-header">
+          <div>
+            <p class="eyebrow">Кабинет юриста</p>
+            <h1 id="lawyerNameDisplay">Ваш профиль</h1>
+          </div>
+        </div>
+
+        <div class="profile-row">
+          <div class="profile-card">
+            <h2>Профиль</h2>
+            <p><strong>Имя:</strong> <span id="lawyerName"></span></p>
+            <p><strong>Логин:</strong> <span id="lawyerLogin"></span></p>
+            <p><strong>Статус:</strong> Юрист</p>
+          </div>
+          <div class="profile-card stats-card">
+            <h2>Дел в работе</h2>
+            <p id="lawyerNewCount">0</p>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">
+            <h2>Мои заявки</h2>
+          </div>
+          <div id="lawyerOrders" class="table-wrap"></div>
+        </div>
+      </section>
+    </main>
+
+    <div id="toast" class="toast" hidden></div>
+
+    <script src="/admin/auth.js"></script>
+    <script src="/lawyer.js"></script>
+  </body>
+</html>

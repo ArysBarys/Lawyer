@@ -1,0 +1,37 @@
+:root{--ink:#1d1815;--brown:#3c261d;--gold:#d4a16d;--cream:#f7f1e9;--white:#fffdfa;--muted:#6c625b;--line:#d7c5b7}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:Inter,Segoe UI,Arial,sans-serif;line-height:1.6}
+.container{width:min(1120px,calc(100% - 2rem));margin:0 auto;padding:1rem 0}
+.lawyer-header{background:#fff;border-bottom:1px solid rgba(60,38,29,.12)}
+.header-inner{display:flex;align-items:center;gap:1rem;padding:1rem 0}
+.brand{display:flex;align-items:center;gap:.75rem;color:var(--brown);font-weight:700;text-decoration:none}
+.brand img{width:42px;height:42px;border-radius:50%;object-fit:cover}
+.lawyer-nav{margin-left:auto;display:flex;align-items:center;gap:.75rem}
+.lawyer-nav a{color:var(--ink);text-decoration:none;font-weight:600}
+.lawyer-nav button{border:1px solid var(--line);border-radius:999px;background:transparent;color:var(--ink);padding:.55rem 1rem;cursor:pointer}
+.card,.panel{background:#fff;border:1px solid rgba(60,38,29,.08);border-radius:14px;padding:1.45rem;margin-top:1.25rem}
+.login-card{max-width:520px;margin:2rem auto;padding:2rem}
+.login-card h1{margin:0 0 .6rem;font-size:1.9rem}
+.field{display:block;margin-top:1rem}
+.field span{display:block;margin-bottom:.45rem;font-weight:700}
+.field input{width:100%;border:1px solid var(--line);border-radius:10px;padding:.85rem 1rem;font-size:1rem}
+.btn-primary{display:inline-block;background:var(--brown);color:#fff;border:none;padding:.85rem 1.35rem;border-radius:8px;font-weight:700;cursor:pointer;margin-top:1rem}
+.btn-secondary{border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);padding:.75rem 1rem;cursor:pointer}
+.error-message{margin-top:.9rem;color:#b00020}
+.hint{margin:.5rem 0 0;color:var(--muted)}
+.dashboard-header{display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;margin-top:2rem}
+.eyebrow{margin:0 0 .7rem;color:var(--gold);font-size:.84rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em}
+.profile-row{display:grid;grid-template-columns:1.5fr 1fr;gap:1.25rem;margin-top:1rem}
+.profile-card{background:#fff;border:1px solid rgba(60,38,29,.08);border-radius:14px;padding:1.25rem}
+.profile-card h2{margin-top:0}
+.stats-card{display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+.stats-card p{font-size:2rem;font-weight:700;margin:.6rem 0 0}
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse}
+thead{background:#f6f0e7}
+th,td{padding:.95rem 1rem;border-bottom:1px solid rgba(60,38,29,.08);text-align:left}
+.status-select{width:100%;border:1px solid var(--line);border-radius:8px;padding:.65rem}
+.small-text{color:var(--muted);font-size:.88rem;margin-top:.3rem}
+.empty-state{padding:1.8rem;font-size:1rem;color:var(--muted)}
+.toast{position:fixed;bottom:1.5rem;right:1.5rem;background:var(--brown);color:#fff;padding:.85rem 1.2rem;border-radius:8px;box-shadow:0 14px 32px rgba(0,0,0,.18);z-index:50}
+@media(max-width:860px){.profile-row{grid-template-columns:1fr}}
+@media(max-width:620px){.header-inner{flex-wrap:wrap}.lawyer-nav{width:100%;justify-content:flex-start;flex-wrap:wrap}}
