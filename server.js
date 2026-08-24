@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 const session = require('express-session');
 const SQLiteStore = require('connect-sqlite3')(session);
@@ -6,6 +8,7 @@ const bcrypt = require('bcryptjs');
 const crypto = require('crypto');
 const fs = require('fs');
 const path = require('path');
+const { sendContactNotification } = require('./mailer');
 
 const DB_DIR = process.env.DB_DIR || path.join(__dirname, '..', 'adaltirek-data');
 fs.mkdirSync(DB_DIR, { recursive: true });
@@ -261,6 +264,10 @@ app.post('/api/contacts', (req, res) => {
     .run(name, phone, email, message);
 
   res.json({ success: true });
+
+  sendContactNotification({ name, phone, email, message }).catch((err) => {
+    console.error('Не удалось отправить письмо с уведомлением о заявке:', err.message);
+  });
 });
 
 app.get('/api/contacts', auth('admin'), (req, res) => {
