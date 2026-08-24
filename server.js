@@ -274,13 +274,10 @@ app.get('/api/lawyer-account', auth('lawyer'), (req, res) => {
   res.json({ profile: publicUser(profile), orders: orders.map(toClientOrder) });
 });
 
-app.get('/admin', (req, res) => {
+app.get(/^\/admin(\/.*)?$/, (req, res) => {
   res.sendFile(path.join(__dirname, 'admin', 'index.html'));
 });
 
-app.get('/admin/login', (req, res) => {
-  res.sendFile(path.join(__dirname, 'admin', 'login.html'));
-});
 
 app.get('/lawyer', (req, res) => {
   res.sendFile(path.join(__dirname, 'lawyer.html'));
